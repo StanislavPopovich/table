@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <title>Schedule</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <div id="header">
+        <ui:insert name = "header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+    </div>
+    <h:outputText value="${infoBean.station}"/>
+    <h:dataTable id="schedule" value="${infoBean.schedule}" var="train" >
+        <h:column>
+            <f:facet name="header">Train</f:facet>
+            <!-- row record -->
+            #{train.number}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Route</f:facet>
+            <!-- row record -->
+            #{train.departStation} - #{train.arrivalStation}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Arrival Date</f:facet>
+            <!-- row record -->
+            #{train.arrivalDate}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Depart Date</f:facet>
+            <!-- row record -->
+            #{train.departureDate}
+        </h:column>
+    </h:dataTable>
+ <h:form>
+    <f:websocket channel="push">
+        <f:ajax event="updateNotifications" render=":schedule" />
+    </f:websocket>
+</h:form>
+</h:body>
+</html>

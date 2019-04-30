@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>Stations</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+    <div id="header">
+        <ui:insert name = "header">
+            <ui:include src="/pages/header.xhtml"/>
+        </ui:insert>
+    </div>
+        <h:form>
+            <h:selectOneMenu value = "#{infoBean.station}" var="c">
+                <f:selectItems value="#{infoBean.stationDtos}" var="stationDto" itemValue="#{stationDto.name}"
+                               itemLabel="#{stationDto.name}"/>
+            </h:selectOneMenu>
+            <h:commandButton action="#{infoBean.moveToPage}"/>
+        </h:form>
+</h:body>
+</html>

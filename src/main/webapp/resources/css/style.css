@@ -1,0 +1,18 @@
+
+#header {
+    position: fixed;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#header .logo {
+    width: 200px;
+    height: 38px;
+    align-self: center;
+}
