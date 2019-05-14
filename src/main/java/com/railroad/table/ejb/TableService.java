@@ -14,8 +14,6 @@ import java.util.List;
 @Singleton
 public class TableService {
 
-    private final static Logger logger = Logger.getLogger(TableService.class);
-
     @Inject
     private BeanManager beanManager;
 

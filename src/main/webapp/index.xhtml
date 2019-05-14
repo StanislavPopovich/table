@@ -7,21 +7,23 @@
 
 <h:head>
     <title>Stations</title>
-    <h:outputStylesheet library="css" name="style.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <h:outputStylesheet  name="css/style.css"/>
 </h:head>
 
 <h:body>
-    <div id="header">
-        <ui:insert name = "header">
-            <ui:include src="/pages/header.xhtml"/>
-        </ui:insert>
-    </div>
+<ui:insert name = "header">
+    <ui:include src="/pages/header.xhtml"/>
+</ui:insert>
+<section class="main">
+    <div class="wrapper_select">
         <h:form>
-            <h:selectOneMenu value = "#{infoBean.station}" var="c">
-                <f:selectItems value="#{infoBean.stationDtos}" var="stationDto" itemValue="#{stationDto.name}"
-                               itemLabel="#{stationDto.name}"/>
+            <h:selectOneMenu value = "#{infoBean.station}" >
+                <f:selectItems value="#{infoBean.stationDtos}" var="stationDto" itemValue="#{stationDto.name}" itemLabel="#{stationDto.name}"/>
             </h:selectOneMenu>
-            <h:commandButton action="#{infoBean.moveToPage}"/>
+            <h:commandButton styleClass="button" value="Select" action="#{infoBean.moveToPage}"/>
         </h:form>
+    </div>
+</section>
 </h:body>
 </html>

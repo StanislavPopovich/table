@@ -1,16 +1,10 @@
 package com.railroad.table.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class StationDto implements Serializable {
 
     private String name;
-
-
 }

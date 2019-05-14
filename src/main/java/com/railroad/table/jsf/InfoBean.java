@@ -3,9 +3,8 @@ import com.railroad.table.dto.StationDto;
 import com.railroad.table.dto.TrainInfoDto;
 import com.railroad.table.ejb.TableService;
 import com.railroad.table.model.Notification;
+import lombok.Data;
 import org.apache.log4j.Logger;
-
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
@@ -16,6 +15,7 @@ import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Named
 @ApplicationScoped
 public class InfoBean {
@@ -33,8 +33,6 @@ public class InfoBean {
     @Inject @Push
     private PushContext push;
 
-    public InfoBean() {
-    }
 
     @PostConstruct
     public void init() {
@@ -47,43 +45,14 @@ public class InfoBean {
         return "schedulePage";
     }
 
-    public List<StationDto> getStationDtos() {
-        return stationDtos;
-    }
-
-    public void setStationDtos(List<StationDto> stationDtos) {
-        this.stationDtos = stationDtos;
-    }
-
-    public String getStation() {
-        return station;
-    }
-
-    public void setStation(String station) {
-        this.station = station;
-    }
-
-    public List<TrainInfoDto> getTrains() {
-        return trains;
-    }
-
-    public void setTrains(List<TrainInfoDto> trains) {
-        this.trains = trains;
-    }
-
-    public List<TrainInfoDto> getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(List<TrainInfoDto> schedule) {
-        this.schedule = schedule;
-    }
 
     public void onNewNotification(@Observes Notification notification) {
         if(notification.getMethod().equals("updateStation")){
+            logger.info("stations have updated");
             this.stationDtos = notification.getNotificationStationDto();
         }
         if(notification.getMethod().equals("updateSchedule")){
+            logger.info("schedule have updated ");
             this.trains = notification.getNotificationTrains();
             setScheduleForSelectedStation();
             push.send("updateNotifications");

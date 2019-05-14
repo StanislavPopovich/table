@@ -1,18 +1,135 @@
-
-#header {
+body {
+    margin: 0px;
+}
+* {
+    box-sizing: border-box;
+}
+.header {
     position: fixed;
+    top: 0px;
     width: 100%;
-    padding: 15px 0px;
+    background-color: #f0ededf0;
 }
 
-#header .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#header .logo {
+.header .logo {
+    display: table;
     width: 200px;
-    height: 38px;
-    align-self: center;
+    height: 40px;
+    margin: 10px auto;
+}
+.header img {
+    width: 100%;
+}
+
+.header h1 {
+    margin: 0px auto 20px;
+    text-align: center;
+}
+
+.wrap {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 115px;
+}
+
+.wrapper_select select {
+    width: 190px;
+    height: 35px;
+    padding: 5px 15px;
+    border: none;
+    background-color: #eae7e7;
+    border-radius: 3px;
+    outline: none;
+}
+
+.wrapper_select .button {
+    padding: 0px 15px;
+    height: 35px;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #00b8ff;
+    margin-left: 20px;
+}
+
+.wrapper_content h2 {
+    margin: 0px auto 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.wrapper_table {
+
+}
+
+.wrapper_table  table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+.wrapper_table  .caption thead tr {
+    background-color: rgba(0, 0, 0, 0.46);
+    color: white;
+}
+.wrapper_table  .caption thead th {
+    border-right: 2px solid white;
+}
+.wrapper_table  .caption thead th:last-child {
+    border: none;
+}
+
+.wrapper_table  .caption th,
+.wrapper_table  .content td {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.wrapper_table  .content td {
+    border-right: 2px solid rgba(0, 0, 0, 0.46);
+}
+.wrapper_table  .content td:last-child {
+    border: none;
+}
+
+
+.wrapper_table  .caption th:nth-child(1),
+.wrapper_table  .content td:nth-child(1){
+    width: 80px;
+}
+
+.wrapper_table  .caption th:nth-child(2),
+.wrapper_table  .content td:nth-child(2){
+    width: 250px;
+}
+
+.wrapper_table  .caption th:nth-child(3),
+.wrapper_table  .content td:nth-child(3),
+.wrapper_table  .caption th:nth-child(4),
+.wrapper_table  .content td:nth-child(4) {
+    width: 150px;
+}
+.wrapper_table  .content tr:nth-child(even){
+    background-color: #ededed;
+}
+
+
+
+.wrapper_table > div:last-child {
+    max-height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
 }
